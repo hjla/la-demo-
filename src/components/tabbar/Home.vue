@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- 轮播图 -->
-    <van-swipe
+    <!-- <van-swipe
       :autoplay="3000"
       indicator-color="white"
       class="my_swipe"
@@ -16,7 +16,7 @@
           alt=""
         >
       </van-swipe-item>
-    </van-swipe>
+    </van-swipe> -->
     <!-- 九宫格 -->
     <!-- <div class="grid">
       <div class="van-col van-col--6">
@@ -56,12 +56,14 @@
         <span>联系我们</span>
       </div>
     </div> -->
+    <swipe :lunbolist='lunbolist'></swipe>
     <grid></grid>
   </div>
 </template>
 
 <script>
 import grid from "../subcomponents/Grid.vue";
+import swipe from "../subcomponents/swipe.vue";
 export default {
   data: () => ({
     lunbolist: []
@@ -71,7 +73,7 @@ export default {
   },
   methods: {
     getlunbo() {
-      this.$http("api/getlunbo").then(result => {
+      this.$http("/api/getlunbo").then(result => {
         const {
           data: { status, message }
         } = result;
@@ -81,13 +83,15 @@ export default {
     }
   },
   components: {
-    grid
+    grid,
+    swipe
   }
 };
 </script>
 
-<style lang='less' scoped>
-.my_swipe {
+<style lang='less' >
+.home{
+  .my_swipe {
    
   .item.van-swipe-item {
    
@@ -98,4 +102,6 @@ export default {
     }
   }
 }
+}
+  
 </style>

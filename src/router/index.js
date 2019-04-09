@@ -2,19 +2,19 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/tabbar/Home'
 import Vip from '../components/tabbar/Vip'
-import Cart from '../components/tabbar/Cart'
+// import Cart from '../components/tabbar/Cart'
 import Search from '../components/tabbar/Search'
 import NewsList from '../components/news/NewsList'
 import PhotoList from '../components/photos/PhotoList'
-import GoodsList from '../components/news/GoodsList'
+import GoodsList from '../components/goods/GoodsList'
 import newsInfo from '../components/news/newsInfo'
-
-
-
+import PhotoInfo from '../components/photos/PhotoInfo'
+import GoodInfo from '../components/goods/GoodInfo'
 
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',
@@ -28,10 +28,10 @@ export default new Router({
       path: '/vip',
       component: Vip
     },
-    {
-      path: '/cart',
-      component: Cart
-    },
+    // {
+    //   path: '/cart',
+    //   component: Cart
+    // },
     {
       path: '/search',
       component: Search
@@ -51,6 +51,14 @@ export default new Router({
     {
       path: '/home/newsInfo',
       component: newsInfo
+    },
+    {
+      path: '/home/photoinfo',
+      component: PhotoInfo
+    },
+    {
+      path: '/home/GoodInfo',
+      component: GoodInfo
     },
   
   ]
